@@ -1,13 +1,5 @@
 name: jbr-linux-x64
 
-on:
-  workflow_dispatch:
-  push:
-    branches: 
-      - master
-  schedule:
-    - cron: 0 0 1 * *
-
 jobs:
   build:
     runs-on: ubuntu-18.04
