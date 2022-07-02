@@ -49,6 +49,9 @@ jobs:
         ANT_HOME: /usr/share/ant
       run: |
         git clone https://github.com/JetBrains/jcef.git jcef
+        cd jcef
+        git checkout 4ef9139d8abd01b72e29ae33c125d937cd942416
+        cd ..
         cd jcef/jb/tools/linux && chmod +x *
         ./build.sh all
 
@@ -65,8 +68,9 @@ jobs:
         JDK_HOME: /usr/lib/jvm/java-11-openjdk-amd64
       run: |
         git config --global core.autocrlf input
-        git clone -b master --single-branch https://github.com/JetBrains/JetBrainsRuntime.git
+        git clone -b main --single-branch https://github.com/JetBrains/JetBrainsRuntime.git
         cd JetBrainsRuntime
+        git checkout jb11_0_15-b2043.56
         mkdir jcef_linux_x64 && tar zxf ../jcef/jcef_linux_x64.tar.gz -C jcef_linux_x64
         git apply -p0 < jb/project/tools/patches/add_jcef_module.patch
         mv ../idea.patch ./
