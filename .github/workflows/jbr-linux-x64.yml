@@ -63,7 +63,7 @@ jobs:
         JDK_HOME: /usr/lib/jvm/java-11-openjdk-amd64
       run: |
         git config --global core.autocrlf input
-        git clone -b main --single-branch https://github.com/JetBrains/JetBrainsRuntime.git
+        git clone -b main https://github.com/JetBrains/JetBrainsRuntime.git
         cd JetBrainsRuntime
         git checkout jb11_0_15-b2043.56
         mkdir jcef_linux_x64 && tar zxf ../jcef/jcef_linux_x64.tar.gz -C jcef_linux_x64
